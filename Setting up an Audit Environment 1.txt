@@ -1,0 +1,17 @@
+auditpol /set /category:* /success:enable /failure:enable
+
+mkdir C:\AuditTest
+
+auditpol /set /subcategory:"File System" /success:enable /failure:enable
+
+icacls "C:\AuditTest" /grant Everyone:(OI)(CI)(F)
+
+echo test > C:\AuditTest\file1.txt
+del C:\AuditTest\file1.txt
+
+mkdir C:\AuditReport
+
+
+wevtutil epl Security C:\AuditReport\Security_Audit_Report.evtx
+
+wevtutil qe Security /f:text > C:\AuditReport\Security_Audit_Report.txt

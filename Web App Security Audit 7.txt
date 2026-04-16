@@ -1,0 +1,12 @@
+cd %USERPROFILE%\Desktop
+echo FAST WEB APP SECURITY AUDIT REPORT > web_audit.txt
+ping -n 2 google.com >> web_audit.txt
+nslookup google.com >> web_audit.txt
+ping google.com | find "Reply" >> web_audit.txt
+curl -I http://google.com >> web_audit.txt
+curl -I https://google.com >> web_audit.txt
+netstat -n >> web_audit.txt
+netstat -an | find "LISTEN" >> web_audit.txt
+arp -a >> web_audit.txt
+ipconfig >> web_audit.txt
+type C:\Windows\System32\drivers\etc\hosts >> web_audit.txt

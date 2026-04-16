@@ -1,0 +1,10 @@
+net stop eventlog
+net start eventlog
+eventcreate /id 100 /l system /t warning /so "TestSource" /d "System warning test event"
+eventcreate /id 101 /l system /t error /so "TestSource" /d "System error test event"
+eventcreate /id 200 /l application /t information /so "AppTest" /d "Application information test event"
+eventcreate /id 201 /l application /t warning /so "AppTest" /d "Application warning test event"
+eventcreate /id 202 /l application /t error /so "AppTest" /d "Application error test event"
+mkdir C:\Logs
+wevtutil epl System C:\Logs\system_log.evtx
+wevtutil epl Application C:\Logs\application_log.evtx

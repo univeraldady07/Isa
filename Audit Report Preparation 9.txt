@@ -1,0 +1,24 @@
+mkdir AuditReport
+cd AuditReport
+echo ===== SYSTEM AUDIT REPORT ===== > audit_report.txt
+echo. >> audit_report.txt
+systeminfo >> audit_report.txt
+echo. >> audit_report.txt
+echo ===== CURRENT USER ===== >> audit_report.txt
+whoami >> audit_report.txt
+echo. >> audit_report.txt
+echo ===== NETWORK CONFIGURATION ===== >> audit_report.txt
+ipconfig /all >> audit_report.txt
+echo. >> audit_report.txt
+echo ===== RUNNING PROCESSES ===== >> audit_report.txt
+tasklist >> audit_report.txt
+echo. >> audit_report.txt
+echo ===== INSTALLED SOFTWARE ===== >> audit_report.txt
+wmic product get name,version >> audit_report.txt
+echo. >> audit_report.txt
+echo ===== DISK INFORMATION ===== >> audit_report.txt
+wmic logicaldisk get name,freespace,size >> audit_report.txt
+echo. >> audit_report.txt
+echo ===== USER ACCOUNTS ===== >> audit_report.txt
+net user >> audit_report.txt
+notepad audit_report.txt

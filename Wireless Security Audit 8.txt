@@ -1,0 +1,12 @@
+cd %USERPROFILE%\Desktop
+echo FAST WIRELESS SECURITY AUDIT REPORT > wifi_audit.txt
+netsh wlan show interfaces >> wifi_audit.txt
+netsh wlan show drivers >> wifi_audit.txt
+netsh wlan show profiles >> wifi_audit.txt
+netsh wlan show profile name=* >> wifi_audit.txt
+ipconfig >> wifi_audit.txt
+arp -a >> wifi_audit.txt
+netstat -n >> wifi_audit.txt
+route print | find "0.0.0.0" >> wifi_audit.txt
+type C:\Windows\System32\drivers\etc\hosts >> wifi_audit.txt
+netsh advfirewall show allprofiles >> wifi_audit.txt

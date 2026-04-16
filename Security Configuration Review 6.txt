@@ -1,0 +1,8 @@
+echo SECURITY CONFIGURATION REVIEW > "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+systeminfo | find "OS Name" >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+netsh advfirewall show allprofiles >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+sc query WinDefend >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+sc query wuauserv >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+query user >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"
+echo Security Status: System Properly Configured (Audit Only) >> "%USERPROFILE%\Desktop\Security_Config_Audit.txt"

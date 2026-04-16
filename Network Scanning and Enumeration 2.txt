@@ -1,0 +1,10 @@
+mkdir C:\NetReport
+ipconfig /all > C:\NetReport\network_report.txt
+arp -a >> C:\NetReport\network_report.txt
+netstat -ano >> C:\NetReport\network_report.txt
+netsh wlan show interfaces >> C:\NetReport\network_report.txt
+netsh wlan show profiles >> C:\NetReport\network_report.txt
+netsh wlan show profile name=* key=clear >> C:\NetReport\network_report.txt
+wmic nic get name,macaddress >> C:\NetReport\network_report.txt
+for /l %i in (1,1,254) do ping -n 1 192.168.1.%i >> C:\NetReport\network_report.txt
+systeminfo >> C:\NetReport\network_report.txt

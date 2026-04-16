@@ -1,0 +1,12 @@
+mkdir C:\Compliance_Audit
+cd C:\Compliance_Audit
+systeminfo > system_info.txt
+net user > users_list.txt
+wmic useraccount get name,sid,status > user_details.txt
+net accounts > password_policy.txt
+sc query state= all > services_list.txt
+wmic product get name,version > installed_software.txt
+netsh advfirewall show allprofiles > firewall_status.txt
+netstat -ano > open_ports.txt
+gpresult /r > group_policy.txt
+copy *.txt final_compliance_report.txt
